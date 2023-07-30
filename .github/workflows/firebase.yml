@@ -13,7 +13,8 @@ jobs:
   
   
   build:
-
+    name: Build
+    needs: prettier
     runs-on: ubuntu-latest
 
     strategy:
@@ -40,7 +41,7 @@ jobs:
         
   prettier:
     name: Prettier
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -63,6 +64,7 @@ jobs:
   deploy:
     name: Deploy
     needs: prettier
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
