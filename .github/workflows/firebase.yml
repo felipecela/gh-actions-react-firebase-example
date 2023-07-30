@@ -63,7 +63,7 @@ jobs:
   
   deploy:
     name: Deploy
-    needs: prettier
+    # needs: prettier
     needs: build
     runs-on: ubuntu-latest
     steps:
