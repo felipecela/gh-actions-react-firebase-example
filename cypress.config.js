@@ -6,6 +6,6 @@ export default defineConfig({
     projectId: "2u4fdq",
     setupNodeEvents(on, config) {
       // implement node event listeners here
-    },
-  },
+    }
+  }
 });
