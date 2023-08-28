@@ -78,18 +78,18 @@ jobs:
         with:
           name: build
           path: build
-      # - name: Cypress
-      #   uses: cypress-io/github-action@v5
-      #   with:
-      #     browser: chrome
-      #     headless: true
-      #     record: true
-      #     start: npm run dev
-      #     wait-on: http://localhost:5173
-      #     parallel: true
-      #   env:
-      #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      #     GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      - name: Cypress
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          headless: true
+          record: true
+          start: npm run dev
+          wait-on: http://localhost:5173
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
   deploy-dev:
     name: Deploy to Dev
