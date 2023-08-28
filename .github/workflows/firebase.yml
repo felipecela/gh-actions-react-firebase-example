@@ -63,20 +63,28 @@ jobs:
   badges:
     name: Badges
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     steps:
-      - name: Checkout 🛎
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Update version badges 🏷
-        run: npx -p dependency-version-badge update-badge cypress cypress-react-app-actions
-
-      - name: Commit any changed files 💾
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Install modules
+        run: npm ci
+      - name: Cypress
+        uses: cypress-io/github-action@v3
         with:
-          commit_message: Updated badges
-          branch: main
-          file_pattern: README.md
+          browser: chrome
+          headless: true
+          record: true
+          start: npm run dev
+          wait-on: http://localhost:5173
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
   deploy-dev:
     name: Deploy to Dev
