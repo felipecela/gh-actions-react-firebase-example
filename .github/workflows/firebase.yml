@@ -60,10 +60,27 @@ jobs:
         name: build
         path: build
 
+  badges:
+    name: Badges
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      - name: Update version badges 🏷
+        run: npx -p dependency-version-badge update-badge cypress cypress-react-app-actions
+
+      - name: Commit any changed files 💾
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated badges
+          branch: main
+          file_pattern: README.md
+
   deploy-dev:
     name: Deploy to Dev
     # needs: prettier
-    needs: build
+    needs: [build, badges]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
