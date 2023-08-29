@@ -1,16 +1,21 @@
-describe("First spec file to test", () => {
+/// <reference types="cypress" />
+import "cypress-react-app-actions";
+
+const typeOptions = { delay: 35 };
+
+describe("1 shorter tests", () => {
+  const startOfSecondPageState = {
+    Text1: "Edit src/App.js and save to reload."
+  };
+
   beforeEach(() => {
     cy.visit("/");
   });
 
-  it("check the app contains the sentence", () => {
-    cy.get("[data-cy=app-heading]").should("contain", "Vite + React + Cypress");
-  });
+  it("first page", () => {
+    cy.log("**First page**");
+    cy.contains("p", "Edit src/App.js and save to reload.");
 
-  it("test the button increment", () => {
-    cy.get("[data-cy=app-button]").click();
-    cy.get("[data-cy=app-button]").contains("count is 1");
-    cy.get("[data-cy=app-button]").click();
-    cy.get("[data-cy=app-button]").contains("count is 2");
+    cy.contains("Learn React").click();
   });
 });
