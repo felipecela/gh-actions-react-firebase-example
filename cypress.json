@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://gh-actions-react-firebas-f70f1.firebaseapp.com/",
+  "baseUrl": "http://localhost:3000/",
   "viewportHeight": 800,
   "supportFile": false,
   "pluginsFile": false,

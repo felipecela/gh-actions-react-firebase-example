@@ -81,11 +81,11 @@ jobs:
       - name: Cypress
         uses: cypress-io/github-action@v5
         with:
-          browser: chrome
-          headless: true
+          # browser: chrome
+          # headless: true
           record: true
-          start: npm run dev
-          wait-on: http://localhost:5173
+          start: npm run start
+          wait-on: http://localhost:3000
           parallel: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
