@@ -29,12 +29,8 @@
     "test:unit:ci": "react-scripts test --watchAll false --ci --runInBand",
     "build:ci": "react-scripts build",
     "types": "tsc --noEmit",
-<<<<<<< HEAD
     "start:ci": "cross-env NODE_ENV=test concurrently yarn:start:react:proxy-server yarn:start:api",
     "prepare": "husky install"
-=======
-    "start:ci": "cross-env NODE_ENV=test concurrently yarn:start:react:proxy-server yarn:start:api"
->>>>>>> f94247d6d0b373fe53face805d0d967fd5352295
   },
   "eslintConfig": {
     "extends": "react-app"
