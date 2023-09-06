@@ -71,20 +71,44 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install modules
-        run: npm ci
+      
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
+
+      - name: Install modules
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+      - run: yarn cypress info
+      - run: node --version
+      - run: node -p 'os.cpus()'
+      - run: yarn types
+      - run: yarn lint
+      - run: yarn test:unit:ci
+      - run: yarn build:ci
+      
+      - name: Archive Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: Download Build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
       - name: Cypress
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
           headless: true
           record: true
-          start: npm run start
+          start: yarn start:ci
           wait-on: http://localhost:3000
           parallel: true
         env:
@@ -97,7 +121,7 @@ jobs:
       # https://github.com/actions/upload-artifact
       - uses: actions/upload-artifact@v3
         # if {{ failure() && always() }}
-        if: ${{ always() }}
+        if: ${{ failure() && always() }}
         with:
           name: cypress-results
           path: |
