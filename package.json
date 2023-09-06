@@ -55,5 +55,8 @@
     "lint-staged": "^14.0.1",
     "prettier": "2.8.8",
     "start-server-and-test": "^1.14.0"
+  },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
