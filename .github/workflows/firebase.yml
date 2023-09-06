@@ -60,35 +60,20 @@ jobs:
         name: build
         path: build
 
-  build-ci:
-    name: Build Test
-    needs: build
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        containers: [1]
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Install modules
-      run: npm ci
-    - name: Archive Build
-      uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: build
-  
   badges:
     name: Badges
-    needs: build-ci
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         containers: [1, 2]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install modules
+        # run: npm ci
+        run: yarn install --immutable --immutable-cache --check-cache
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
