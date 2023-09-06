@@ -77,12 +77,12 @@ jobs:
     - name: Archive Build
       uses: actions/upload-artifact@v2
       with:
-        name: build-ci
+        name: build
         path: build
   
   badges:
     name: Badges
-    needs: [build, build-ci]
+    needs: build-ci
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -93,11 +93,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build
-          path: build
-      - name: Download Build CI
-        uses: actions/download-artifact@v2
-        with:
-          name: build-ci
           path: build
       - name: Cypress
         uses: cypress-io/github-action@v5
