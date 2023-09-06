@@ -96,7 +96,8 @@ jobs:
       # capture screenshots, videos, Mochawesome reports
       # https://github.com/actions/upload-artifact
       - uses: actions/upload-artifact@v3
-        if: ${{ inputs.store-artifacts && always() }}
+        # if: ${{ failure() && always() }}
+        if: ${{ always() }}
         with:
           name: cypress-results
           path: cypress/videos
