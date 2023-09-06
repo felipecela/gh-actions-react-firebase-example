@@ -33,7 +33,7 @@
     "test:unit:ci": "react-scripts testcy --watchAll false --ci --runInBand",
     "build:ci": "react-scripts build",
     "types": "tsc --noEmit",
-    "start:ci": "cross-env NODE_ENV=test concurrently yarn:start:react:proxy-server yarn:start:api",
+    "start:ci": "cross-env NODE_ENV=gh-actions-react-firebas-f70f1.dev concurrently yarn:start:react:proxy-server yarn:start:api",
     "prepare": "husky install"
   },
   "eslintConfig": {
