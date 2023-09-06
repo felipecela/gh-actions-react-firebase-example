@@ -6,5 +6,6 @@ export default defineConfig({
     setupNodeEvents(on, config) {},
     supportFile: false,
     baseUrl: 'http://localhost:3000',
+    projectId: "rrpyro",
   },
 })
