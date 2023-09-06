@@ -59,22 +59,16 @@ jobs:
           name: build
           path: build
 
-  badges:
-    name: Badges
+  build-ci:
+    name: Build
     needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        containers: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> f94247d6d0b373fe53face805d0d967fd5352295
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
@@ -92,17 +86,22 @@ jobs:
       - run: yarn lint
       - run: yarn test:unit:ci
       - run: yarn build:ci
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> f94247d6d0b373fe53face805d0d967fd5352295
       - name: Archive Build
         uses: actions/upload-artifact@v2
         with:
           name: build
           path: build
 
+  badges:
+    name: Badges
+    needs: build-ci
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
+    steps:
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
