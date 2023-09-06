@@ -61,8 +61,8 @@ jobs:
         path: build
 
   build-ci:
-    name: Build
-    needs: prettier
+    name: Build Test
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
