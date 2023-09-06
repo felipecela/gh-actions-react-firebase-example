@@ -1,6 +1,7 @@
 # Ignore cache directory for GitLab builds
 /cache
 
+.git/*
 data
 build
 coverage
