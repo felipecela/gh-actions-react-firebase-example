@@ -5,7 +5,7 @@ interface todosState {
 }
 
 const initialState: todosState = {
-  data: [],
+  data: []
 };
 
 export const todosSlice = createSlice({
@@ -23,10 +23,10 @@ export const todosSlice = createSlice({
 
       return {
         ...state,
-        data: state.data.filter((todo) => todo.id !== id),
+        data: state.data.filter(todo => todo.id !== id)
       };
-    },
-  },
+    }
+  }
 });
 
 export const { addTodo, removeTodo } = todosSlice.actions;

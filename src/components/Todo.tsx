@@ -1,13 +1,13 @@
-import style from './todo.module.scss'
-import remove from '../assets/icons/remove.svg'
-import { useAppDispatch } from '../store/hooks'
-import { removeTodo } from '../store/reducers/todosSlice'
+import style from "./todo.module.scss";
+import remove from "../assets/icons/remove.svg";
+import { useAppDispatch } from "../store/hooks";
+import { removeTodo } from "../store/reducers/todosSlice";
 
 function Todo(props: { text: string; id: number }) {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   function removeHandler() {
-    dispatch(removeTodo(props.id))
+    dispatch(removeTodo(props.id));
   }
 
   return (
@@ -15,7 +15,7 @@ function Todo(props: { text: string; id: number }) {
       <span>{props.text}</span>
       <img src={remove} alt="remove" onClick={removeHandler} />
     </div>
-  )
+  );
 }
 
-export default Todo
+export default Todo;

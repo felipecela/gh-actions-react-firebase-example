@@ -1,0 +1,9 @@
+# Ignore cache directory for GitLab builds
+/cache
+
+data
+build
+coverage
+amplify/*
+node_modules/*
+aws-exports*
