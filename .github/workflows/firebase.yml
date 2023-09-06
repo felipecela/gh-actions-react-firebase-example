@@ -99,11 +99,8 @@ jobs:
         if: ${{ inputs.store-artifacts && always() }}
         with:
           name: cypress-results
-          path: |
-            cypress/screenshots
-            cypress/videos
-            cypress/results
-          # if-no-files-found: ignore
+          path: cypress/videos
+          if-no-files-found: ignore
 
   deploy-dev:
     name: Deploy to Dev
