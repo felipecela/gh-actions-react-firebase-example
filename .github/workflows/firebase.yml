@@ -100,7 +100,10 @@ jobs:
         if: ${{ always() }}
         with:
           name: cypress-results
-          path: cypress/videos
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/results
           if-no-files-found: ignore
 
   deploy-dev:
