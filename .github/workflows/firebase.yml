@@ -103,7 +103,7 @@ jobs:
             cypress/screenshots
             cypress/videos
             cypress/results
-          if-no-files-found: ignore
+          # if-no-files-found: ignore
 
   deploy-dev:
     name: Deploy to Dev
