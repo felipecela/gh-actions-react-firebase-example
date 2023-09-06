@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -55,8 +58,5 @@
     "lint-staged": "^14.0.1",
     "prettier": "2.8.8",
     "start-server-and-test": "^1.14.0"
-  },
-  "resolutions": {
-    "mini-css-extract-plugin": "2.4.5"
   }
 }
