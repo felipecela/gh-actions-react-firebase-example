@@ -94,8 +94,8 @@ jobs:
   deploy-dev:
     name: Deploy to Dev
     # needs: prettier
-    # needs: badges
-    needs: build
+    needs: badges
+    # needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
