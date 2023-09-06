@@ -100,10 +100,9 @@ jobs:
         if: ${{ inputs.store-artifacts && always() }}
         with:
           name: cypress-results
-          path: 
+          path: |
             cypress/screenshots
             cypress/videos
-            cypress/results
           if-no-files-found: ignore
 
   deploy-dev:
