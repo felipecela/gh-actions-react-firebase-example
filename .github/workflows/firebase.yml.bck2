@@ -60,44 +60,23 @@ jobs:
         name: build
         path: build
 
-  build-ci:
-    name: Build
-    needs: prettier
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        containers: [1]
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Install modules
-      run: npm ci
-    - name: Archive Build
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-ci
-        path: build
-  
   badges:
     name: Badges
-    needs: [build, build-ci]
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         containers: [1, 2]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install modules
+        run: npm ci
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
           name: build
-          path: build
-      - name: Download Build CI
-        uses: actions/download-artifact@v2
-        with:
-          name: build-ci
           path: build
       - name: Cypress
         uses: cypress-io/github-action@v5
