@@ -76,7 +76,7 @@ jobs:
           path: build
 
       - name: Install modules
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           runTests: false
       - run: yarn cypress info
@@ -109,7 +109,7 @@ jobs:
           path: build
 
       - name: Cypress
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           browser: chrome
           headless: true
