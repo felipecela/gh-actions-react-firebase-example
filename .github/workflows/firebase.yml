@@ -43,9 +43,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
@@ -54,7 +54,7 @@ jobs:
           yarn install
           yarn build
       - name: Archive Build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
@@ -70,13 +70,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: Install modules
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           runTests: false
       - run: yarn cypress info
@@ -88,7 +88,7 @@ jobs:
       - run: yarn build:ci
 
       - name: Archive Build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
@@ -103,18 +103,18 @@ jobs:
         containers: [1, 2]
     steps:
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: Cypress
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           browser: chrome
           headless: true
           record: true
-          start: yarn start:ci
+          start: yarn run start
           wait-on: http://localhost:3000
           parallel: true
         env:
@@ -143,9 +143,9 @@ jobs:
     # needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
@@ -164,9 +164,9 @@ jobs:
     environment:
       name: gh-actions-react-firebas-f70f2.prod
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build

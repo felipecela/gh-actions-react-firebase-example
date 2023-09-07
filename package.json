@@ -2,9 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "resolutions": {
-    "mini-css-extract-plugin": "^2.4.5"
-  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -15,12 +12,24 @@
     "@types/react": "^16.14.21",
     "@types/react-dom": "^16.9.14",
     "@types/react-redux": "^7.1.22",
-    "node-sass": "^7.0.1",
+    "node-sass": "^9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "react-scripts": "5.0.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "react-scripts": "^4.0.3",
     "typescript": "^4.1.6"
+=======
+    "react-scripts": "5.0.0",
+    "typescript": "^4.1.6",
+    "mini-css-extract-plugin": "^2.4.5"
+>>>>>>> parent of 754b035 (test33-cypress)
+=======
+    "react-scripts": "5.0.0",
+    "typescript": "^4.1.6",
+    "mini-css-extract-plugin": "^2.4.5"
+>>>>>>> parent of 754b035 (test33-cypress)
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,7 +42,7 @@
     "test:unit:ci": "react-scripts testcy --watchAll false --ci --runInBand",
     "build:ci": "react-scripts build",
     "types": "tsc --noEmit",
-    "start:ci": "cross-env NODE_ENV=test concurrently yarn:start:react:proxy-server yarn:start:api",
+    "start:ci": "cross-env NODE_ENV=gh-actions-react-firebas-f70f1.dev concurrently yarn:start:react:proxy-server yarn:start:api",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -53,10 +62,16 @@
   },
   "devDependencies": {
     "cy-spok": "^1.5.2",
-    "cypress": "^10.9.0",
+    "cypress": "^13.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "mini-css-extract-plugin": "2.4.5",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "mini-css-extract-plugin": "2.5.1",
+=======
+>>>>>>> parent of 754b035 (test33-cypress)
+=======
+>>>>>>> parent of 754b035 (test33-cypress)
     "prettier": "2.8.8",
     "start-server-and-test": "^1.14.0"
   }
