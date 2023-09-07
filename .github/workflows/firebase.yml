@@ -43,9 +43,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
@@ -54,7 +54,7 @@ jobs:
           yarn install
           yarn build
       - name: Archive Build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
@@ -70,7 +70,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
@@ -88,7 +88,7 @@ jobs:
       - run: yarn build:ci
 
       - name: Archive Build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
@@ -103,7 +103,7 @@ jobs:
         containers: [1, 2]
     steps:
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
@@ -143,9 +143,9 @@ jobs:
     # needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
@@ -164,9 +164,9 @@ jobs:
     environment:
       name: gh-actions-react-firebas-f70f2.prod
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
