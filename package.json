@@ -16,8 +16,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+<<<<<<< HEAD
     "react-scripts": "^4.0.3",
     "typescript": "^4.1.6"
+=======
+    "react-scripts": "5.0.0",
+    "typescript": "^4.1.6",
+    "mini-css-extract-plugin": "^2.4.5"
+>>>>>>> parent of 754b035 (test33-cypress)
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,7 +59,10 @@
     "cypress": "^13.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+<<<<<<< HEAD
     "mini-css-extract-plugin": "2.5.1",
+=======
+>>>>>>> parent of 754b035 (test33-cypress)
     "prettier": "2.8.8",
     "start-server-and-test": "^1.14.0"
   }
